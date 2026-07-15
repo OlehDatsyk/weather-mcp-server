@@ -1,0 +1,50 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Environment / secrets ----
+.env
+.env.local
+*.key
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- Testing / coverage ----
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.tox/
+
+# ---- Type checking / linting caches ----
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# ---- VS Code ----
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
