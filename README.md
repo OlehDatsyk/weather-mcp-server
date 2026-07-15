@@ -119,35 +119,35 @@ alerts, are documented in [`docs/architecture.md`](docs/architecture.md).
 
 ```
 weather-mcp-server/
-├── README.md                        # This file
-├── INSTRUCTION.md                   # Quick-start / operational instructions
-├── LICENSE                          # MIT License
+├── README.md # This file
+├── INSTRUCTION.md # Quick-start / operational instructions
+├── LICENSE # MIT License
 ├── .gitignore
-├── requirements.txt                 # Python dependencies
-├── .env.example                     # Documented environment variable template
-├── pytest.ini                       # Pytest configuration
-├── server.py                        # MCP server entry point
-├── config.py                        # Pydantic Settings (env-based configuration)
-├── weather_service.py               # OpenWeatherMap API client + business logic
-├── tools.py                         # MCP tool registrations
-├── resources.py                     # MCP resource registrations
-├── prompts.py                       # MCP prompt registrations
-├── schemas.py                       # Pydantic v2 models (I/O + errors)
-├── logging_config.py                # Loguru configuration
+├── requirements.txt # Python dependencies
+├── .env.example # Documented environment variable template
+├── pytest.ini # Pytest configuration
+├── server.py # MCP server entry point
+├── config.py # Pydantic Settings (env-based configuration)
+├── weather_service.py # OpenWeatherMap API client + business logic
+├── tools.py # MCP tool registrations
+├── resources.py # MCP resource registrations
+├── prompts.py # MCP prompt registrations
+├── schemas.py # Pydantic v2 models (I/O + errors)
+├── logging_config.py # Loguru configuration
 ├── tests/
 │   ├── __init__.py
-│   ├── conftest.py                  # Shared fixtures (fake API responses, etc.)
-│   ├── test_schemas.py              # Pydantic model validation tests
-│   ├── test_weather_service.py      # Service-layer tests (respx-mocked HTTP)
-│   ├── test_tools.py                # End-to-end MCP tool tests
+│   ├── conftest.py # Shared fixtures (fake API responses, etc.)
+│   ├── test_schemas.py # Pydantic model validation tests
+│   ├── test_weather_service.py # Service-layer tests (respx-mocked HTTP)
+│   ├── test_tools.py # End-to-end MCP tool tests
 │   └── test_resources_and_prompts.py
 ├── docs/
-│   ├── architecture.md              # Deep-dive architecture documentation
-│   └── mcp-primer.md                # MCP concepts primer (tools/resources/prompts)
+│   ├── architecture.md # Deep-dive architecture documentation
+│   └── mcp-primer.md # MCP concepts primer (tools/resources/prompts)
 └── .vscode/
-    ├── settings.json                # Python interpreter, test discovery, linting
-    ├── launch.json                  # Run/debug configurations
-    └── extensions.json              # Recommended VS Code extensions
+    ├── settings.json # Python interpreter, test discovery, linting
+    ├── launch.json # Run/debug configurations
+    └── extensions.json # Recommended VS Code extensions
 ```
 
 ## Capabilities
@@ -228,7 +228,7 @@ code .
 ```
 
 (Or simply extract the project archive and open the folder in VS Code via
-**File -> Open Folder…**.)
+**File -> Open Folder...**.)
 
 ### 4. Create a Virtual Environment
 
