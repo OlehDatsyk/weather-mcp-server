@@ -54,7 +54,7 @@ Key design goals:
   code live in separate, single-responsibility modules (see
   [Architecture](#architecture) and [`docs/architecture.md`](docs/architecture.md)).
 - **Structured everything** - every tool returns a well-typed, validated
-  Pydantic model (dumped to JSON), including a *structured error* shape on
+  Pydantic model (dumped to JSON), including a _structured error_ shape on
   failure - never a raw exception or free-text error string.
 - **Production hygiene** - environment-based configuration, rotating file
   logs via Loguru, retry logic for transient HTTP failures, and graceful
@@ -154,13 +154,13 @@ weather-mcp-server/
 
 ### Tools
 
-| Tool                    | Description                                                                 |
-|--------------------------|-------------------------------------------------------------------------------|
-| `get_current_weather`    | Current temperature, humidity, wind, cloudiness, and conditions for a city.    |
-| `get_weather_forecast`   | 1-5 day / 3-hour-resolution forecast for a city.                                |
-| `compare_cities`         | Side-by-side current-weather comparison across 2-10 cities.                     |
-| `get_air_quality`        | Air Quality Index (1-5) and pollutant concentrations (CO, NO2, O3, PM2.5, etc). |
-| `get_weather_alerts`     | Active official severe-weather alerts/warnings for a city.                       |
+| Tool                   | Description                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `get_current_weather`  | Current temperature, humidity, wind, cloudiness, and conditions for a city.     |
+| `get_weather_forecast` | 1-5 day / 3-hour-resolution forecast for a city.                                |
+| `compare_cities`       | Side-by-side current-weather comparison across 2-10 cities.                     |
+| `get_air_quality`      | Air Quality Index (1-5) and pollutant concentrations (CO, NO2, O3, PM2.5, etc). |
+| `get_weather_alerts`   | Active official severe-weather alerts/warnings for a city.                      |
 
 Every tool:
 
@@ -171,19 +171,19 @@ Every tool:
 
 ### Resources
 
-| Resource URI                 | Description                                                          |
-|--------------------------------|--------------------------------------------------------------------------|
-| `weather://cities/supported`   | Curated list of popular, well-known cities.                                |
-| `weather://units`              | Supported unit systems (`metric`, `imperial`, `standard`) and their meaning. |
-| `weather://api/info`           | Metadata about the underlying weather API: endpoints used, rate limits, key status. |
+| Resource URI                 | Description                                                                         |
+| ---------------------------- | ----------------------------------------------------------------------------------- |
+| `weather://cities/supported` | Curated list of popular, well-known cities.                                         |
+| `weather://units`            | Supported unit systems (`metric`, `imperial`, `standard`) and their meaning.        |
+| `weather://api/info`         | Metadata about the underlying weather API: endpoints used, rate limits, key status. |
 
 ### Prompts
 
-| Prompt                      | Description                                                             |
-|-------------------------------|-------------------------------------------------------------------------|
-| `weather_summary`             | Friendly, plain-language weather briefing for a city.                     |
-| `travel_recommendation`       | Forecast- and alert-informed travel planning advice.                       |
-| `clothing_recommendation`     | Practical what-to-wear advice based on current conditions.                  |
+| Prompt                    | Description                                                |
+| ------------------------- | ---------------------------------------------------------- |
+| `weather_summary`         | Friendly, plain-language weather briefing for a city.      |
+| `travel_recommendation`   | Forecast- and alert-informed travel planning advice.       |
+| `clothing_recommendation` | Practical what-to-wear advice based on current conditions. |
 
 ---
 
@@ -381,12 +381,12 @@ pytest --cov=. --cov-report=term-missing
 
 Test suite layout:
 
-| File                                     | Covers                                                       |
-|--------------------------------------------|------------------------------------------------------------------|
-| `tests/test_schemas.py`                    | Pydantic model validation rules (no I/O).                          |
-| `tests/test_weather_service.py`            | Service layer: success paths + every error path, HTTP-mocked.       |
-| `tests/test_tools.py`                      | End-to-end MCP tool behavior via FastMCP's in-memory `Client`.       |
-| `tests/test_resources_and_prompts.py`      | Resource/prompt registration and content correctness.               |
+| File                                  | Covers                                                         |
+| ------------------------------------- | -------------------------------------------------------------- |
+| `tests/test_schemas.py`               | Pydantic model validation rules (no I/O).                      |
+| `tests/test_weather_service.py`       | Service layer: success paths + every error path, HTTP-mocked.  |
+| `tests/test_tools.py`                 | End-to-end MCP tool behavior via FastMCP's in-memory `Client`. |
+| `tests/test_resources_and_prompts.py` | Resource/prompt registration and content correctness.          |
 
 You can also run tests directly from VS Code's **Testing** sidebar (the
 beaker icon), thanks to the pytest configuration in `.vscode/settings.json`.
@@ -453,7 +453,7 @@ network errors, ensure you're running the tests as-is (don't remove the
   subscriptions to push severe weather alert updates to clients in
   near-real-time rather than requiring polling.
 - **Packaging** - publish as an installable package (`pip install
-  weather-mcp-server`) with a console-script entry point.
+weather-mcp-server`) with a console-script entry point.
 - **CI pipeline** - add a GitHub Actions workflow to run `pytest` and
   linting (`ruff`) on every push/PR.
 
