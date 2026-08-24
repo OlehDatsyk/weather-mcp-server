@@ -14,7 +14,7 @@ just need to speak MCP.
 
 An MCP server can expose three kinds of capabilities:
 
-### 1. Tools — things the model can *do*
+### 1. Tools - things the model can *do*
 
 Tools are callable functions with a defined JSON Schema for their inputs
 and (in this server) structured JSON outputs. The client's LLM decides
@@ -29,7 +29,7 @@ conversation so far. In this server:
 | `get_air_quality`      | AQI + pollutant concentrations for one city             |
 | `get_weather_alerts`   | Active official weather warnings for one city           |
 
-### 2. Resources — things the model can *read*
+### 2. Resources - things the model can *read*
 
 Resources are addressable, typically read-only pieces of data, identified
 by a URI (much like a GET endpoint). Clients can list available resources
@@ -42,7 +42,7 @@ conversation's context. In this server:
 | `weather://units`              | Supported unit systems and what they measure              |
 | `weather://api/info`           | Metadata about the underlying weather API and its limits  |
 
-### 3. Prompts — reusable conversation starters
+### 3. Prompts - reusable conversation starters
 
 Prompts are parameterized templates a client can surface to users (e.g. as
 slash-commands or quick actions) that produce a ready-made message
@@ -59,9 +59,9 @@ task. In this server:
 
 Before MCP, every AI application that wanted to integrate with, say, a
 weather API, a database, or a ticketing system had to write and maintain a
-custom integration — and every one of those integrations had to be
+custom integration - and every one of those integrations had to be
 re-implemented for every different AI application. This is the classic
-"M×N integration problem": M AI applications × N tools/data sources = M×N
+"MxN integration problem": M AI applications x N tools/data sources = MxN
 bespoke integrations.
 
 MCP turns this into an "M+N" problem: each tool/data source implements
@@ -70,17 +70,17 @@ Any MCP client can then talk to any MCP server, immediately.
 
 Concretely, MCP gives you:
 
-- **Standardization** — one protocol instead of bespoke API glue code per
+- **Standardization** - one protocol instead of bespoke API glue code per
   application.
-- **Reusability** — this weather server works unmodified with Claude
+- **Reusability** - this weather server works unmodified with Claude
   Desktop, the MCP Inspector, or any other MCP-compatible client.
-- **Discoverability** — clients can programmatically list a server's tools,
+- **Discoverability** - clients can programmatically list a server's tools,
   resources, and prompts (and their schemas) rather than requiring
   hand-written documentation to be read by a human integrator.
-- **Structured, typed interactions** — JSON Schema-validated tool inputs and
+- **Structured, typed interactions** - JSON Schema-validated tool inputs and
   (in well-built servers like this one) structured JSON outputs, instead of
   the model having to parse free-text API responses itself.
-- **Separation of concerns** — the people who know a data source best (its
+- **Separation of concerns** - the people who know a data source best (its
   API quirks, rate limits, auth) build the MCP server once; AI application
   developers just consume it.
 

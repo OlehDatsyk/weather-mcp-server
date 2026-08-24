@@ -7,9 +7,9 @@
 # Always operate from the folder this script lives in.
 cd "$(dirname "$0")" || exit 1
 
-echo "================================================================"
-echo "  Weather MCP Server - macOS Launcher"
-echo "================================================================"
+echo "================================================================="
+echo "  Weather MCP Server - macOS Launcher (Was made by Oleh Datsyk)"
+echo "================================================================="
 echo
 
 # ---------------------------------------------------------------

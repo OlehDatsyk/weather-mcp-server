@@ -103,14 +103,14 @@ run loop raises.
 
 ## Testing strategy
 
-- **`tests/test_schemas.py`** — pure Pydantic validation tests, no I/O.
-- **`tests/test_weather_service.py`** — service-layer tests with all HTTP
+- **`tests/test_schemas.py`** - pure Pydantic validation tests, no I/O.
+- **`tests/test_weather_service.py`** - service-layer tests with all HTTP
   calls intercepted by `respx`, covering both success and each error path.
-- **`tests/test_tools.py`** — end-to-end tests that register tools on a real
+- **`tests/test_tools.py`** - end-to-end tests that register tools on a real
   `FastMCP` app and invoke them through FastMCP's in-memory `Client`,
   verifying the full tool contract (JSON Schema, structured output,
   structured errors).
-- **`tests/test_resources_and_prompts.py`** — verifies all resources and
+- **`tests/test_resources_and_prompts.py`** - verifies all resources and
   prompts are registered and return the expected shape/content.
 
 No test requires network access or a real API key; `respx` mocks the

@@ -680,7 +680,7 @@ arguments, and click **Run Tool**.
 | 1 | `get_current_weather` | `{"city": "London", "units": "metric"}` | Current temperature, humidity, wind, and conditions for London. |
 | 2 | `get_weather_forecast` | `{"city": "Tokyo", "units": "metric", "days": 3}` | A 3-day, 3-hour-step forecast for Tokyo. |
 | 3 | `compare_cities` | `{"cities": ["Paris", "New York", "Sydney"], "units": "metric"}` | Side-by-side comparison, including the warmest/coldest/most humid city. |
-| 4 | `get_air_quality` | `{"city": "Cairo"}` | Air Quality Index (1–5) and pollutant concentrations. |
+| 4 | `get_air_quality` | `{"city": "Cairo"}` | Air Quality Index (1-5) and pollutant concentrations. |
 | 5 | `get_weather_alerts` | `{"city": "Miami"}` | Any active official severe-weather alerts. |
 
 ### 16.1 Example: testing `get_current_weather`

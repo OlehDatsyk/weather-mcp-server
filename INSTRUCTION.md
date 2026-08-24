@@ -122,7 +122,7 @@ squares):
 
 1. Extract the project folder somewhere easy to find, e.g. your Desktop.
 2. Open VS Code.
-3. Go to **File -> Open Folder…** and select the `weather-mcp-server`
+3. Go to **File -> Open Folder...** and select the `weather-mcp-server`
    folder (the one containing `server.py`).
 4. VS Code will open with the file list on the left.
 

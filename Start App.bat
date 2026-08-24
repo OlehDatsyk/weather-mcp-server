@@ -3,9 +3,9 @@ setlocal enabledelayedexpansion
 title Weather MCP Server - Launcher
 cd /d "%~dp0"
 
-echo ================================================================
-echo   Weather MCP Server - Windows Launcher
-echo ================================================================
+echo ===================================================================
+echo   Weather MCP Server - Windows Launcher (Was made by Oleh Datsyk)
+echo ===================================================================
 echo.
 
 REM ---------------------------------------------------------------
