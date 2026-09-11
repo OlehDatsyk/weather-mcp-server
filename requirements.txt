@@ -1,5 +1,7 @@
 # Core MCP framework
-fastmcp>=2.3.0
+# Pinned: the code imports from fastmcp.prompts.prompt, which was
+# restructured/removed in fastmcp 3.x/4.x. Keep this on the 2.x series.
+fastmcp>=2.3.0,<3.0.0
 
 # HTTP client for calling the OpenWeatherMap API
 httpx>=0.27.0

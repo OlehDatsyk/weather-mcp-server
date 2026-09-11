@@ -6,3 +6,13 @@
 2026-08-02 20:08:26.293 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
 2026-08-02 20:08:26.298 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
 2026-08-02 20:08:26.300 | INFO     | __main__:_run:68 - Starting 'weather-mcp-server' (API key configured: True)
+2026-09-11 20:59:28.440 | INFO     | tools:register_tools:206 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-09-11 20:59:28.440 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-09-11 20:59:28.442 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-09-11 20:59:28.444 | INFO     | __main__:_run:68 - Starting 'weather-mcp-server' (API key configured: True)
+2026-09-11 20:59:28.523 | INFO     | __main__:_run:84 - Weather MCP Server stopped cleanly.
+2026-09-11 21:00:54.512 | INFO     | tools:register_tools:206 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-09-11 21:00:54.513 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-09-11 21:00:54.516 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-09-11 21:00:54.516 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
+2026-09-11 21:00:54.563 | INFO     | __main__:_run:89 - PORT is set (8097); running over HTTP transport.

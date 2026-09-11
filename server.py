@@ -18,6 +18,7 @@ Or via the MCP Inspector for interactive debugging:
 from __future__ import annotations
 
 import asyncio
+import os
 import sys
 
 from fastmcp import FastMCP
@@ -78,7 +79,17 @@ async def _run() -> None:
 
     await weather_service.start()
     try:
-        await mcp.run_async()
+        # Render (and most hosting platforms) set PORT to tell the app which
+        # port to listen on. When it's present, run over streamable HTTP so
+        # the server is reachable as a normal web service. Otherwise (e.g.
+        # when launched locally by Claude Desktop or the MCP Inspector),
+        # fall back to the default stdio transport used for local clients.
+        port = os.environ.get("PORT")
+        if port:
+            logger.info("PORT is set ({}); running over HTTP transport.", port)
+            await mcp.run_async(transport="http", host="0.0.0.0", port=int(port))
+        else:
+            await mcp.run_async()
     finally:
         await weather_service.close()
         logger.info("Weather MCP Server stopped cleanly.")
