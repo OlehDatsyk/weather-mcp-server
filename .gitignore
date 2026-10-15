@@ -11,6 +11,7 @@ dist/
 
 # ---- Virtual environments ----
 .venv/
+.venv.old/
 venv/
 env/
 ENV/
@@ -40,6 +41,7 @@ coverage.xml
 .vscode/*
 !.vscode/settings.json
 !.vscode/launch.json
+!.vscode/tasks.json
 !.vscode/extensions.json
 
 # ---- OS ----

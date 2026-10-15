@@ -43,6 +43,27 @@ def _error_payload(exc: WeatherServiceError) -> dict[str, Any]:
     ).model_dump()
 
 
+def _clean_city(city: str) -> str:
+    """Strip a city name and reject empty input before any API call is made."""
+    cleaned = city.strip()
+    if not cleaned:
+        raise WeatherServiceError(
+            "City name must not be empty.", error_type="invalid_input"
+        )
+    return cleaned
+
+
+def _clean_cities(cities: list[str]) -> list[str]:
+    """Strip city names, drop blanks, and enforce the documented 2-10 limit."""
+    cleaned = [c.strip() for c in cities if c and c.strip()]
+    if not 2 <= len(cleaned) <= 10:
+        raise WeatherServiceError(
+            f"compare_cities needs 2 to 10 non-empty city names (got {len(cleaned)}).",
+            error_type="invalid_input",
+        )
+    return cleaned
+
+
 def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
     """
     Register all weather-related MCP tools on the given FastMCP instance.
@@ -80,7 +101,9 @@ def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
         """
         logger.info("Tool call: get_current_weather(city={!r}, units={})", city, units)
         try:
-            result = await weather_service.get_current_weather(city=city, units=units)
+            result = await weather_service.get_current_weather(
+                city=_clean_city(city), units=units
+            )
             return result.model_dump(mode="json")
         except WeatherServiceError as exc:
             return _error_payload(exc)
@@ -117,7 +140,7 @@ def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
         try:
             days_clamped = max(1, min(days, 5))
             result = await weather_service.get_forecast(
-                city=city, units=units, days=days_clamped
+                city=_clean_city(city), units=units, days=days_clamped
             )
             return result.model_dump(mode="json")
         except WeatherServiceError as exc:
@@ -146,7 +169,9 @@ def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
         """
         logger.info("Tool call: compare_cities(cities={}, units={})", cities, units)
         try:
-            result = await weather_service.compare_cities(cities=cities, units=units)
+            result = await weather_service.compare_cities(
+                cities=_clean_cities(cities), units=units
+            )
             return result.model_dump(mode="json")
         except WeatherServiceError as exc:
             return _error_payload(exc)
@@ -172,7 +197,7 @@ def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
         """
         logger.info("Tool call: get_air_quality(city={!r})", city)
         try:
-            result = await weather_service.get_air_quality(city=city)
+            result = await weather_service.get_air_quality(city=_clean_city(city))
             return result.model_dump(mode="json")
         except WeatherServiceError as exc:
             return _error_payload(exc)
@@ -198,7 +223,7 @@ def register_tools(mcp: FastMCP, weather_service: WeatherService) -> None:
         """
         logger.info("Tool call: get_weather_alerts(city={!r})", city)
         try:
-            result = await weather_service.get_alerts(city=city)
+            result = await weather_service.get_alerts(city=_clean_city(city))
             return result.model_dump(mode="json")
         except WeatherServiceError as exc:
             return _error_payload(exc)

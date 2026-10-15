@@ -16,7 +16,6 @@ Prompts registered here:
 from __future__ import annotations
 
 from fastmcp import FastMCP
-from fastmcp.prompts.prompt import PromptMessage, TextContent
 
 from logging_config import get_logger
 
@@ -33,7 +32,7 @@ def register_prompts(mcp: FastMCP) -> None:
             "conditions for a city, suitable for a quick daily briefing."
         ),
     )
-    def weather_summary(city: str) -> PromptMessage:
+    def weather_summary(city: str) -> str:
         """
         Build a prompt asking for a concise, friendly weather summary.
 
@@ -48,7 +47,9 @@ def register_prompts(mcp: FastMCP) -> None:
             f"etc.), humidity, and wind. Keep the tone warm and easy to read, as "
             f"if giving a quick briefing to a friend before they start their day."
         )
-        return PromptMessage(role="user", content=TextContent(type="text", text=text))
+        # A plain string is rendered as a single user message by both
+        # fastmcp 2.x and 3.x (3.x no longer accepts a bare PromptMessage).
+        return text
 
     @mcp.prompt(
         name="travel_recommendation",
@@ -58,7 +59,7 @@ def register_prompts(mcp: FastMCP) -> None:
             "around, etc.)."
         ),
     )
-    def travel_recommendation(city: str, days: int = 3) -> PromptMessage:
+    def travel_recommendation(city: str, days: int = 3) -> str:
         """
         Build a prompt asking for forecast-informed travel advice.
 
@@ -77,7 +78,9 @@ def register_prompts(mcp: FastMCP) -> None:
             f"of any active weather alerts travelers should be aware of. "
             f"Structure the answer with clear headings and keep it practical."
         )
-        return PromptMessage(role="user", content=TextContent(type="text", text=text))
+        # A plain string is rendered as a single user message by both
+        # fastmcp 2.x and 3.x (3.x no longer accepts a bare PromptMessage).
+        return text
 
     @mcp.prompt(
         name="clothing_recommendation",
@@ -86,7 +89,7 @@ def register_prompts(mcp: FastMCP) -> None:
             "current temperature, wind, and precipitation conditions."
         ),
     )
-    def clothing_recommendation(city: str) -> PromptMessage:
+    def clothing_recommendation(city: str) -> str:
         """
         Build a prompt asking for a clothing recommendation based on current
         conditions.
@@ -104,7 +107,9 @@ def register_prompts(mcp: FastMCP) -> None:
             f"numbered list of clothing items, and one sentence of overall "
             f"advice (e.g. 'layer up, it will warm up by afternoon')."
         )
-        return PromptMessage(role="user", content=TextContent(type="text", text=text))
+        # A plain string is rendered as a single user message by both
+        # fastmcp 2.x and 3.x (3.x no longer accepts a bare PromptMessage).
+        return text
 
     logger.info(
         "Registered 3 MCP prompts: weather_summary, travel_recommendation, "

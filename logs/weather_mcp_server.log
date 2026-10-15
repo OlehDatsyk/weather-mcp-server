@@ -16,3 +16,249 @@
 2026-09-11 21:00:54.516 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
 2026-09-11 21:00:54.516 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
 2026-09-11 21:00:54.563 | INFO     | __main__:_run:89 - PORT is set (8097); running over HTTP transport.
+2026-10-15 14:25:15.085 | INFO     | tools:register_tools:206 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 14:25:15.085 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 14:25:15.099 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 14:25:15.101 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
+2026-10-15 14:25:16.884 | INFO     | __main__:_run:95 - Weather MCP Server stopped cleanly.
+2026-10-15 17:11:46.453 | INFO     | tools:register_tools:206 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 17:11:46.453 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 17:11:46.472 | INFO     | prompts:register_prompts:109 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 17:11:46.477 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: False)
+2026-10-15 17:11:46.477 | WARNING  | __main__:_run:75 - OPENWEATHER_API_KEY is not set. Tools will return a structured error until a valid key is configured in your .env file.
+2026-10-15 18:54:01.746 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:01.905 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:01.916 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:01.928 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:01.942 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:01.954 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:01.967 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:01.981 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:02.010 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:02.314 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 18:54:02.336 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:02.546 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Nowhereville', units=UnitSystem.METRIC)
+2026-10-15 18:54:02.547 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:02.565 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:02.774 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', 'Paris'], units=UnitSystem.METRIC)
+2026-10-15 18:54:02.799 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:03.012 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='   ', units=UnitSystem.METRIC)
+2026-10-15 18:54:03.013 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:03.033 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:03.246 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='', units=UnitSystem.METRIC, days=3)
+2026-10-15 18:54:03.246 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:03.270 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:03.487 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='')
+2026-10-15 18:54:03.487 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:03.508 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:03.721 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city=' ')
+2026-10-15 18:54:03.721 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:03.738 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:03.932 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London'], units=UnitSystem.METRIC)
+2026-10-15 18:54:03.932 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:03.947 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:04.174 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', ' '], units=UnitSystem.METRIC)
+2026-10-15 18:54:04.330 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:04.349 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:04.551 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['City0', 'City1', 'City2', 'City3', 'City4', 'City5', 'City6', 'City7', 'City8', 'City9', 'City10'], units=UnitSystem.METRIC)
+2026-10-15 18:54:04.551 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 11).
+2026-10-15 18:54:04.586 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:04.795 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 18:54:04.795 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'London' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:05.079 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:11.445 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:11.458 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:11.471 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:11.478 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:11.487 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:11.490 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:11.505 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:11.516 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:11.541 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:11.789 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 18:54:11.804 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:12.040 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Nowhereville', units=UnitSystem.METRIC)
+2026-10-15 18:54:12.040 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:12.051 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:12.283 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', 'Paris'], units=UnitSystem.METRIC)
+2026-10-15 18:54:12.296 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:12.531 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='   ', units=UnitSystem.METRIC)
+2026-10-15 18:54:12.532 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:12.545 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:12.782 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='', units=UnitSystem.METRIC, days=3)
+2026-10-15 18:54:12.782 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:12.794 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:13.034 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='')
+2026-10-15 18:54:13.034 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:13.047 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:13.285 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city=' ')
+2026-10-15 18:54:13.285 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:13.299 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:13.532 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London'], units=UnitSystem.METRIC)
+2026-10-15 18:54:13.533 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:13.538 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:13.776 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', ' '], units=UnitSystem.METRIC)
+2026-10-15 18:54:13.776 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:13.788 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:14.019 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['City0', 'City1', 'City2', 'City3', 'City4', 'City5', 'City6', 'City7', 'City8', 'City9', 'City10'], units=UnitSystem.METRIC)
+2026-10-15 18:54:14.019 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 11).
+2026-10-15 18:54:14.031 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:14.272 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 18:54:14.272 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'London' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:14.579 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:36.915 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:36.938 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:36.949 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:36.959 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:36.972 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:36.984 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:36.998 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:37.010 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:37.041 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:37.250 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 18:54:37.267 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:37.480 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Nowhereville', units=UnitSystem.METRIC)
+2026-10-15 18:54:37.481 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:37.500 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:37.714 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', 'Paris'], units=UnitSystem.METRIC)
+2026-10-15 18:54:37.735 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:37.944 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='   ', units=UnitSystem.METRIC)
+2026-10-15 18:54:37.944 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:37.963 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:38.169 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='', units=UnitSystem.METRIC, days=3)
+2026-10-15 18:54:38.169 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:38.188 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:38.401 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='')
+2026-10-15 18:54:38.401 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:38.419 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:38.624 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city=' ')
+2026-10-15 18:54:38.624 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:38.641 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:38.843 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London'], units=UnitSystem.METRIC)
+2026-10-15 18:54:38.843 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:38.860 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:39.063 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', ' '], units=UnitSystem.METRIC)
+2026-10-15 18:54:39.064 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:39.083 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:39.296 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['City0', 'City1', 'City2', 'City3', 'City4', 'City5', 'City6', 'City7', 'City8', 'City9', 'City10'], units=UnitSystem.METRIC)
+2026-10-15 18:54:39.297 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 11).
+2026-10-15 18:54:39.316 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:39.522 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 18:54:39.550 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:41.192 | WARNING  | weather_service:compare_cities:287 - compare_cities: failed for 'Nowhereville': City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:41.829 | INFO     | weather_service:get_alerts:345 - Alerts endpoint unavailable for 'London': OpenWeatherMap API error (HTTP 401): Invalid or unauthorized API key. Double-check OPENWEATHER_API_KEY in your .env file.
+2026-10-15 18:54:45.106 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:45.118 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:45.128 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:45.134 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:54:45.144 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:45.154 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:45.163 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:45.172 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:54:45.198 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:45.450 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 18:54:45.465 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:45.706 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Nowhereville', units=UnitSystem.METRIC)
+2026-10-15 18:54:45.708 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:45.722 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:45.958 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', 'Paris'], units=UnitSystem.METRIC)
+2026-10-15 18:54:45.976 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:46.203 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='   ', units=UnitSystem.METRIC)
+2026-10-15 18:54:46.205 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:46.218 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:46.460 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='', units=UnitSystem.METRIC, days=3)
+2026-10-15 18:54:46.460 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:46.473 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:46.755 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='')
+2026-10-15 18:54:46.755 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:46.770 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:47.016 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city=' ')
+2026-10-15 18:54:47.016 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 18:54:47.032 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:47.307 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London'], units=UnitSystem.METRIC)
+2026-10-15 18:54:47.308 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:47.323 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:47.578 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', ' '], units=UnitSystem.METRIC)
+2026-10-15 18:54:47.578 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 18:54:47.592 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:47.852 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['City0', 'City1', 'City2', 'City3', 'City4', 'City5', 'City6', 'City7', 'City8', 'City9', 'City10'], units=UnitSystem.METRIC)
+2026-10-15 18:54:47.852 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 11).
+2026-10-15 18:54:47.867 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:48.131 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 18:54:48.149 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:54:50.156 | WARNING  | weather_service:compare_cities:287 - compare_cities: failed for 'Nowhereville': City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:54:50.865 | INFO     | weather_service:get_alerts:345 - Alerts endpoint unavailable for 'London': OpenWeatherMap API error (HTTP 401): Invalid or unauthorized API key. Double-check OPENWEATHER_API_KEY in your .env file.
+2026-10-15 18:55:19.383 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:55:19.384 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:55:19.387 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:55:19.388 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
+2026-10-15 18:55:19.720 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London,GB', units=UnitSystem.METRIC)
+2026-10-15 18:55:20.098 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='Manchester,GB', units=UnitSystem.METRIC, days=5)
+2026-10-15 18:55:20.159 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London,GB', 'Edinburgh,GB'], units=UnitSystem.METRIC)
+2026-10-15 18:55:20.266 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='Birmingham,GB')
+2026-10-15 18:55:20.387 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city='London,GB')
+2026-10-15 18:55:20.516 | INFO     | weather_service:get_alerts:345 - Alerts endpoint unavailable for 'London,GB': OpenWeatherMap API error (HTTP 401): Invalid or unauthorized API key. Double-check OPENWEATHER_API_KEY in your .env file.
+2026-10-15 18:55:20.519 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Xyzzyqwertyville', units=UnitSystem.METRIC)
+2026-10-15 18:55:20.635 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Xyzzyqwertyville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 18:59:39.053 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 18:59:39.053 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 18:59:39.059 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 18:59:39.060 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
+2026-10-15 19:04:21.308 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 19:04:59.566 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London, GB', units=UnitSystem.METRIC)
+2026-10-15 19:06:44.820 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='Manchester, GB', units=UnitSystem.METRIC, days=3)
+2026-10-15 19:08:08.680 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 19:08:18.887 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London, GB')
+2026-10-15 19:11:49.530 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 19:11:49.557 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 19:11:49.568 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 19:11:49.579 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 19:11:49.591 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 19:11:49.603 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 19:11:49.618 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 19:11:49.630 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 19:11:49.661 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:49.871 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London', units=UnitSystem.METRIC)
+2026-10-15 19:11:49.893 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:50.097 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Nowhereville', units=UnitSystem.METRIC)
+2026-10-15 19:11:50.098 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 19:11:50.118 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:50.325 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', 'Paris'], units=UnitSystem.METRIC)
+2026-10-15 19:11:50.344 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:50.542 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='   ', units=UnitSystem.METRIC)
+2026-10-15 19:11:50.543 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 19:11:50.561 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:50.758 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='', units=UnitSystem.METRIC, days=3)
+2026-10-15 19:11:50.758 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 19:11:50.776 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:50.978 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='')
+2026-10-15 19:11:50.979 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 19:11:50.996 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:51.195 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city=' ')
+2026-10-15 19:11:51.195 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: City name must not be empty.
+2026-10-15 19:11:51.214 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:51.419 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London'], units=UnitSystem.METRIC)
+2026-10-15 19:11:51.419 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 19:11:51.438 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:51.643 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London', ' '], units=UnitSystem.METRIC)
+2026-10-15 19:11:51.643 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 1).
+2026-10-15 19:11:51.662 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:51.908 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['City0', 'City1', 'City2', 'City3', 'City4', 'City5', 'City6', 'City7', 'City8', 'City9', 'City10'], units=UnitSystem.METRIC)
+2026-10-15 19:11:51.909 | ERROR    | tools:_error_payload:39 - Tool error [invalid_input]: compare_cities needs 2 to 10 non-empty city names (got 11).
+2026-10-15 19:11:51.926 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:52.132 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='London')
+2026-10-15 19:11:52.152 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:11:53.842 | WARNING  | weather_service:compare_cities:287 - compare_cities: failed for 'Nowhereville': City 'Nowhereville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').
+2026-10-15 19:11:54.453 | INFO     | weather_service:get_alerts:345 - Alerts endpoint unavailable for 'London': OpenWeatherMap API error (HTTP 401): Invalid or unauthorized API key. Double-check OPENWEATHER_API_KEY in your .env file.
+2026-10-15 19:12:02.749 | INFO     | tools:register_tools:231 - Registered 5 MCP tools: current weather, forecast, compare, air quality, alerts
+2026-10-15 19:12:02.749 | INFO     | resources:register_resources:124 - Registered 3 MCP resources: supported cities, units, api info
+2026-10-15 19:12:02.752 | INFO     | prompts:register_prompts:114 - Registered 3 MCP prompts: weather_summary, travel_recommendation, clothing_recommendation
+2026-10-15 19:12:02.754 | INFO     | __main__:_run:69 - Starting 'weather-mcp-server' (API key configured: True)
+2026-10-15 19:12:03.264 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='London,GB', units=UnitSystem.METRIC)
+2026-10-15 19:12:03.495 | INFO     | tools:get_weather_forecast:134 - Tool call: get_weather_forecast(city='Manchester,GB', units=UnitSystem.METRIC, days=5)
+2026-10-15 19:12:03.564 | INFO     | tools:compare_cities:170 - Tool call: compare_cities(cities=['London,GB', 'Edinburgh,GB'], units=UnitSystem.METRIC)
+2026-10-15 19:12:03.669 | INFO     | tools:get_air_quality:198 - Tool call: get_air_quality(city='Birmingham,GB')
+2026-10-15 19:12:03.771 | INFO     | tools:get_weather_alerts:224 - Tool call: get_weather_alerts(city='London,GB')
+2026-10-15 19:12:03.869 | INFO     | weather_service:get_alerts:345 - Alerts endpoint unavailable for 'London,GB': OpenWeatherMap API error (HTTP 401): Invalid or unauthorized API key. Double-check OPENWEATHER_API_KEY in your .env file.
+2026-10-15 19:12:03.874 | INFO     | tools:get_current_weather:102 - Tool call: get_current_weather(city='Xyzzyqwertyville', units=UnitSystem.METRIC)
+2026-10-15 19:12:03.927 | ERROR    | tools:_error_payload:39 - Tool error [city_not_found]: City 'Xyzzyqwertyville' could not be found. Check spelling or try 'City,CountryCode' (e.g. 'Springfield,US').

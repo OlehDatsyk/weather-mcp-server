@@ -12,6 +12,7 @@ Built with **Python 3.12+**, **FastMCP**, **HTTPX**, **Pydantic v2**,
 
 ## Table of Contents
 
+- [Quick Start on Windows 11](#quick-start-on-windows-11)
 - [Project Overview](#project-overview)
 - [What is MCP?](#what-is-mcp)
 - [Why MCP Matters](#why-mcp-matters)
@@ -34,8 +35,43 @@ Built with **Python 3.12+**, **FastMCP**, **HTTPX**, **Pydantic v2**,
   - [MCP Inspector](#mcp-inspector)
 - [Testing](#testing)
 - [Troubleshooting](#troubleshooting)
+  - [Windows-specific problems](#windows-specific-problems)
+- [Security](#security)
 - [Future Improvements](#future-improvements)
 - [License](#license)
+
+---
+
+## Quick Start on Windows 11
+
+Run these commands in **PowerShell** (for example, the VS Code terminal)
+from the project folder. Full explanations are in the
+[Installation Guide](#installation-guide).
+
+```powershell
+# 1. Create a fresh virtual environment (never reuse one copied from another folder)
+py -3.12 -m venv .venv
+
+# 2. Activate it
+.\.venv\Scripts\Activate.ps1
+
+# 3. Install the dependencies
+python -m pip install -r requirements.txt
+
+# 4. Create your local settings file, then open it and add your API key
+Copy-Item .env.example .env
+notepad .env
+
+# 5. Check that everything works (all tests run offline)
+python -m pytest
+
+# 6. Try the server in your browser with the MCP Inspector (needs Node.js)
+npx @modelcontextprotocol/inspector .\.venv\Scripts\python.exe server.py
+```
+
+In the Inspector, click **Connect**, open the **Tools** tab, choose a tool
+such as `get_current_weather`, enter a city (for example `London,GB`) and
+click **Run Tool**.
 
 ---
 
@@ -147,6 +183,7 @@ weather-mcp-server/
 └── .vscode/
     ├── settings.json # Python interpreter, test discovery, linting
     ├── launch.json # Run/debug configurations
+    ├── tasks.json # Tasks: run tests, start server, install dependencies
     └── extensions.json # Recommended VS Code extensions
 ```
 
@@ -168,6 +205,9 @@ Every tool:
 - Returns a **structured, JSON-serializable Pydantic model** on success.
 - Returns a **structured `ToolError`** object (`error`, `error_type`,
   `message`) on failure - never an unhandled exception.
+- Rejects empty city names, and `compare_cities` lists with fewer than 2
+  or more than 10 cities, with `error_type: "invalid_input"` before any
+  API request is made.
 
 ### Resources
 
@@ -245,20 +285,32 @@ source .venv/bin/activate
 
 ```powershell
 py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 ```
 
-Once activated, VS Code should automatically detect `.venv` as the
-workspace interpreter (configured in `.vscode/settings.json`). If it
-doesn't, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`), run
-**Python: Select Interpreter**, and choose `.venv`.
+When the environment is active, the terminal prompt starts with `(.venv)`.
+
+VS Code normally detects `.venv` automatically. If it doesn't, open the
+Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`), run
+**Python: Select Interpreter**, and choose:
+
+- Windows: `.venv\Scripts\python.exe`
+- macOS / Linux: `.venv/bin/python`
+
+> **Important:** a virtual environment only works in the folder where it
+> was created. Do not copy `.venv` from another folder, another computer or
+> a ZIP archive - create a new one instead. A copied `.venv` can silently
+> install packages into the *original* folder's environment.
 
 ### 5. Install Dependencies
 
 ```bash
-pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
+
+`requirements.txt` keeps FastMCP on the **2.x** series (`fastmcp<3.0.0`),
+which is the tested version. The code also works with FastMCP 3.x.
 
 ### 6. API Key Setup
 
@@ -270,7 +322,13 @@ pip install -r requirements.txt
 3. Copy the environment template and add your key:
 
    ```bash
+   # macOS / Linux
    cp .env.example .env
+   ```
+
+   ```powershell
+   # Windows (PowerShell)
+   Copy-Item .env.example .env
    ```
 
 4. Open `.env` and set:
@@ -305,9 +363,25 @@ reserved for the MCP protocol), for example:
 
 Press `Ctrl+C` to stop it.
 
-To actually interact with it, use an MCP client - see the next section - or
-launch it via the **"Run Weather MCP Server"** configuration already
-defined in `.vscode/launch.json` (press `F5` in VS Code).
+To actually interact with it, use an MCP client - see the next section.
+
+**In VS Code** you can also:
+
+- Press `F5` and choose **"Run Weather MCP Server"** (from
+  `.vscode/launch.json`) to run it with the debugger.
+- Use **Terminal -> Run Task...** and choose **"Start Weather MCP Server
+  (stdio)"**, **"Run tests"** or **"Install dependencies"** (from
+  `.vscode/tasks.json`). The tasks use the interpreter you selected.
+
+**HTTP mode:** if the `PORT` environment variable is set, the server uses
+the streamable HTTP transport instead of stdio (useful for hosting, for
+example on Render):
+
+```powershell
+$env:PORT = "8000"; python server.py   # MCP endpoint: http://localhost:8000/mcp
+```
+
+Close the terminal or run `Remove-Item Env:PORT` to go back to stdio mode.
 
 ## Connecting with an MCP Client
 
@@ -318,33 +392,61 @@ Add this server to Claude Desktop's MCP configuration file
 `~/Library/Application Support/Claude/claude_desktop_config.json`, on
 Windows at `%APPDATA%\Claude\claude_desktop_config.json`):
 
+**Windows example** (in JSON, every backslash must be doubled):
+
 ```json
 {
   "mcpServers": {
     "weather": {
-      "command": "/absolute/path/to/weather-mcp-server/.venv/bin/python",
-      "args": ["/absolute/path/to/weather-mcp-server/server.py"],
-      "env": {
-        "OPENWEATHER_API_KEY": "your_actual_api_key_here"
-      }
+      "command": "C:\\Users\\yourname\\projects\\weather-mcp-server\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\yourname\\projects\\weather-mcp-server\\server.py"]
     }
   }
 }
 ```
 
-> On Windows, use the path to `.venv\Scripts\python.exe`. Restart Claude
-> Desktop after editing the config. You should then see this server's tools
-> available in the 🔨 (tools) menu within a conversation.
+**macOS / Linux example:**
+
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "/absolute/path/to/weather-mcp-server/.venv/bin/python",
+      "args": ["/absolute/path/to/weather-mcp-server/server.py"]
+    }
+  }
+}
+```
+
+The server reads `OPENWEATHER_API_KEY` from the `.env` file in the project
+folder, so you do not need to put the key in this file. (You *can* add an
+`"env": {"OPENWEATHER_API_KEY": "..."}` block instead, but then the key is
+stored in a second place.)
+
+Fully restart Claude Desktop after editing the config. The server's tools
+then appear in the tools menu of a conversation.
 
 ### MCP Inspector
 
 The [MCP Inspector](https://github.com/modelcontextprotocol/inspector) is
-the standard interactive debugging tool for MCP servers. With Node.js
-installed:
+the standard interactive debugging tool for MCP servers. It needs
+[Node.js](https://nodejs.org/) (LTS version). Run it from the project
+folder:
 
 ```bash
-npx @modelcontextprotocol/inspector python server.py
+# macOS / Linux
+npx @modelcontextprotocol/inspector .venv/bin/python server.py
 ```
+
+```powershell
+# Windows (PowerShell)
+npx @modelcontextprotocol/inspector .\.venv\Scripts\python.exe server.py
+```
+
+The Inspector prints a local address with a one-time security token (for
+example `http://127.0.0.1:6274?...TOKEN=...`) and usually opens it in your
+browser. Use the full address, including the token. Click **Connect** first. Press `Ctrl+C` in the terminal to stop
+both the Inspector and the server.
 
 This opens a browser UI where you can:
 
@@ -361,10 +463,10 @@ The full test suite runs **offline** - all HTTP calls to OpenWeatherMap are
 intercepted by [`respx`](https://lundberg.github.io/respx/), so no API key
 or network access is required to run the tests.
 
-Run everything:
+Run everything (50 tests):
 
 ```bash
-pytest
+python -m pytest
 ```
 
 Run a specific file, with verbose output:
@@ -433,6 +535,57 @@ All tests should be fully offline via `respx` mocking. If you see real
 network errors, ensure you're running the tests as-is (don't remove the
 `@respx.mock` decorators) and that `respx` is installed
 (`pip install -r requirements.txt`).
+
+**Tools return `{"error": true, "error_type": "invalid_input", ...}`**
+The city name was empty, or `compare_cities` received fewer than 2 or more
+than 10 cities. Correct the input and try again.
+
+### Windows-specific problems
+
+**`Activate.ps1 cannot be loaded because running scripts is disabled`**
+PowerShell is blocking scripts. Allow them for the current terminal only
+(this does not change any system-wide setting):
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+You can also skip activation and call the interpreter directly, for
+example `.\.venv\Scripts\python.exe server.py`.
+
+**`pip --version` shows a path in a different project folder**
+The `.venv` was copied from somewhere else. Rename or delete it and create
+a new one (see [step 4](#4-create-a-virtual-environment)).
+
+**`Prompt must return str, list[Message], or PromptResult, got PromptMessage`**
+This came from an older version of `prompts.py` combined with FastMCP 3.x.
+Update to the current `prompts.py`, or reinstall the dependencies with
+`python -m pip install -r requirements.txt`.
+
+**`[WinError 206] The filename or extension is too long` during install or unzip**
+Windows limits paths to 260 characters by default. Move the project to a
+shorter folder (for example `C:\Projects\weather-mcp-server`). Do not
+extract a ZIP that contains a `.venv` folder - create a new environment
+instead.
+
+**`py` is not recognised**
+Install Python from [python.org](https://www.python.org/downloads/)
+(it includes the `py` launcher), or use `python` instead of `py -3.12`.
+
+---
+
+## Security
+
+- Keep your API key **only** in the local `.env` file. `.env` is listed in
+  `.gitignore`, so Git does not commit it.
+- Never put a real key in `.env.example`, the README, screenshots, issues
+  or ZIP archives you share.
+- The server never writes the API key to its logs, and its request logging
+  leaves out the `appid` parameter.
+- If a key is exposed, delete it in your
+  [OpenWeatherMap API keys dashboard](https://home.openweathermap.org/api_keys)
+  and create a new one.
 
 ---
 

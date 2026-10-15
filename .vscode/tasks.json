@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run tests",
+            "type": "process",
+            "command": "${command:python.interpreterPath}",
+            "args": ["-m", "pytest"],
+            "group": { "kind": "test", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Weather MCP Server (stdio)",
+            "type": "process",
+            "command": "${command:python.interpreterPath}",
+            "args": ["server.py"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Install dependencies",
+            "type": "process",
+            "command": "${command:python.interpreterPath}",
+            "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+            "problemMatcher": []
+        }
+    ]
+}

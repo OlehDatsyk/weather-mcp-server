@@ -101,6 +101,41 @@ class TestCompareCitiesTool:
             await service.close()
 
 
+class TestInputValidation:
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        ("tool", "args"),
+        [
+            ("get_current_weather", {"city": "   "}),
+            ("get_weather_forecast", {"city": ""}),
+            ("get_air_quality", {"city": ""}),
+            ("get_weather_alerts", {"city": " "}),
+            ("compare_cities", {"cities": ["London"]}),
+            ("compare_cities", {"cities": ["London", " "]}),
+            ("compare_cities", {"cities": [f"City{i}" for i in range(11)]}),
+        ],
+    )
+    async def test_invalid_input_returns_structured_error_without_api_call(
+        self, mcp_app: tuple[FastMCP, WeatherService], tool: str, args: dict
+    ) -> None:
+        app, service = mcp_app
+
+        await service.start()
+        try:
+            with respx.mock(assert_all_called=False) as router:
+                route = router.get(url__startswith=BASE_URL).mock(
+                    return_value=httpx.Response(200, json={})
+                )
+                async with Client(app) as client:
+                    result = await client.call_tool(tool, args)
+            data = result.data
+            assert data["error"] is True
+            assert data["error_type"] == "invalid_input"
+            assert not route.called
+        finally:
+            await service.close()
+
+
 class TestGetAirQualityTool:
     @pytest.mark.asyncio
     @respx.mock
